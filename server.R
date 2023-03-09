@@ -12,6 +12,14 @@ number_of_times_category <- kidz_data %>% group_by(category) %>%
                                           summarise(count = sum(count))
 
 bad_words <- KidzBop %>% select(category, badword, inSongs, censored)
+
+# Finding the words in original songs that were never censored
+
+word_finder <- bad_words %>% filter(inSongs > 0 & censored == 0) %>%
+                             group_by(category) %>% 
+                             summarise(inSongs = sum(inSongs)) %>%
+                             filter(inSongs == max(inSongs)) %>% pull(category, inSongs)
+                             
                                           
 
 
