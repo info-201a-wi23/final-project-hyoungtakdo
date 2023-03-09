@@ -1,9 +1,15 @@
 library("shiny")
 library("tidyverse")
 library("plotly")
+library("bslib")
+
+my_theme <- bs_theme(bg = "#E9D8E4", 
+                     fg = "black", 
+                     primary = "#343F71")
 
 intro_page <- tabPanel("Introduction",
-                       h1("Kidz Bop Censorship"))
+                       h1("Kidz Bop Censorship"),
+                       img(src = "Kidz-bop-logo.png"))
 
 chart_1 <- tabPanel(
   "Censored Words Per Year",
@@ -112,6 +118,7 @@ chart_3 <- tabPanel(
 conclusion <- tabPanel("Conclusion")
 
 ui <- navbarPage("Kidz Bop Censorship",
+                 theme = my_theme,
                  intro_page,
                  chart_1,
                  chart_2,
