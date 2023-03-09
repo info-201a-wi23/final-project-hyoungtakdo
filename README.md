@@ -1,4 +1,4 @@
-# Title of Your Final Project Here 
+# Kidz Bop Censorship
 ## INFO 201 "Foundational Skills for Data Science" — Winter 2023
 
 Authors: Vincent La, Tak Do, Shivansh Shekhar, Shaaz Karim Charania
