@@ -80,16 +80,18 @@ server <- function(input, output) {
         x = inSongs, 
         y = censored, 
         color = badword,
-        text = "\n Word:", badword,
-               "Original Count:", inSongs,
-               "Censored Count:", censored)) +
+        text = paste("\n Word:", badword,
+               "\n Original Count:", inSongs,
+               "\n Censored Count:", censored))) +
       geom_smooth(mapping = aes(
         x = inSongs, 
         y = censored), 
         method = "lm") +
-      labs(title = "How Often A Word Has Been Censored",
-           x = "Word Frequency",
-           y = "Censor Frequency")
+      labs(title = "How Often A Word Has Been Censored From 2001-2019",
+           x = "Original Word Count",
+           y = "Censorship Frequency of the Word",
+           color = "Censored Word") +
+      theme(plot.title = element_text(hjust = .5))
     
     return(ggplotly(frequency_plotted, tooltip = c("text")))
     

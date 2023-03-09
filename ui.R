@@ -83,11 +83,29 @@ chart_3 <- tabPanel(
        selectInput(inputId = "frequency_selection",
                    label = "Choice of Word",
                    choices = bad_words$badword,
-                   selected = "addict",
+                   selected = c("addict", "blow", "bottle"),
                    multiple = TRUE)),
      mainPanel(
        h1("How Often are the Words Censored"),
-       plotlyOutput("frequency_plot")
+       plotlyOutput("frequency_plot"),
+       h3("Visualization Summary"),
+       p("The above scatterplot is showing the amount of times a word that
+         could be censored appears in a song against how often it is censored.
+         The line in the middle is showing a line of best fit, suggesting that
+         songs above the line are more censored more frequently than expected,
+         while those below are censored less frequently than expected. Once
+         this visualization was created, one of the things that jumped out
+         at me was that cuss words were almost all censored everytime.
+         All points that plot profanity sit above the expected line.
+         Interestingly enough, the words “man”, “kiss”, and “god” were
+         4th, 5th, and 6th respectively in most times censored.
+         Sexual references can be seen sitting below the expected line
+         quite frequently, suggesting that the context of the sexual references
+         matters a lot. Words pertaining to violence can be seen on both sides
+         of the expected line, which also suggests that context does matter a
+         lot to the censorship decisions made. Words fitting into the other
+         and identity categories often sit below the expected line, with two
+         exceptions, those being “man” (identity) and “god” (other).")
      )
    ))
 
